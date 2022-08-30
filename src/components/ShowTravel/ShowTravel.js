@@ -3,10 +3,8 @@ import useCosmosApi from '../../hooks/useCosmosApi';
 import TravelProviderDropDown from '../TravelProviderDropdown/TravelProviderDropdown';
 const ShowTravel = (props) => {
     const routeBetweenPlanets = useRouteBetweenPlanets(props.from, props.to);
-    const cosmosData = useCosmosApi(
-        'http://127.0.0.1:8080/api/v1.0/TravelPrices'
-    );
-
+    const cosmosData = useCosmosApi();
+    console.log(cosmosData);
     return routeBetweenPlanets.map((route, index) => {
         const pairOfPlanets = routeBetweenPlanets.slice(index, index + 2);
 
@@ -20,12 +18,16 @@ const ShowTravel = (props) => {
                 pairOfPlanets.length !== 0
             );
         });
-
         console.log(travel);
         if (travel && travel.length > 0) {
             return (
-                <div className='routes' key={travel.at(0).id}>
-                    <h1 key={travel[0].routeInfo.from.id}>
+                <div
+                    className='routes'
+                    key={travel.at(0).id}
+                    data-testid='routes'>
+                    <h1
+                        key={travel[0].routeInfo.from.id}
+                        data-testid='routes-from-to'>
                         {travel[0].routeInfo.from.name}
                         {'->'}
                         {travel[0].routeInfo.to.name}
@@ -34,8 +36,10 @@ const ShowTravel = (props) => {
                     <TravelProviderDropDown
                         providers={travel.at(0).providers}
                     />
-                    <h3 key={travel.at(0).routeInfo.id}>
-                        Distance: {travel.at(0).routeInfo.distance}{' '}
+                    <h3
+                        key={travel.at(0).routeInfo.id}
+                        data-testid='routes-distance'>
+                        Distance: {travel.at(0).routeInfo.distance}
                     </h3>
                 </div>
             );

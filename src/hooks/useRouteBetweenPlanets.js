@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
 /*
     This code creates represents the paths between each planet as graph adjacency list,
     it then traverses the graph using breath first search to find a route between user specified
     start and endpoints.
 */
 const useRouteBetweenPlanets = (from, to) => {
-  
     const planets =
         'Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune'.split(' ');
     const routes = [

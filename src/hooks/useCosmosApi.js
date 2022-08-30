@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const useCosmosApi = (url) => {
+const useCosmosApi = () => {
     const [cosmosData, setCosmosData] = useState([]);
 
     const fetchData = async () => {
-        const res = await fetch(url);
+        const res = await fetch('http://127.0.0.1:8080/api/v1.0/TravelPrices');
         return res.json();
     };
 

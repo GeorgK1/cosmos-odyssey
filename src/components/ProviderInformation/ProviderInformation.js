@@ -5,16 +5,19 @@ const ProviderInformation = (props) => {
                 type={'radio'}
                 onChange={props.onChange}
                 value={props.price}
-                name='price'
+                name={props.name}
+                data-testid='provider-info-radio'
             />
 
-            <label> Price: {props.price}</label>
-
-            <p>Flight start: {props.flightStart}</p>
-            <p>Flight end: {props.flightEnd}</p>
-
+            <label data-testid='provider-info-price'>
+                Price: {props.price}
+            </label>
+            <p data-testid='provider-info-start'>
+                Flight start: {props.flightStart}
+            </p>
+            <p data-testid='provider-info-end'>Flight end: {props.flightEnd}</p>
         </div>
     );
 };
 
-export default ProviderInformation
+export default ProviderInformation;

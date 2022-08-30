@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ShowTravel from '../ShowTravel';
-import { Formik, Field, Form } from 'formik';
 import PlanetsDropdown from '../PlanetsDropdown/PlanetsDropdown';
 const TravelSelection = () => {
     const [from, setFrom] = useState('Mercury');
@@ -17,23 +16,18 @@ const TravelSelection = () => {
     };
 
     return (
-        <Formik>
-            <Form>
-                <div>
-                    <h1>FROM</h1>
-                    <PlanetsDropdown handleSelect={handleFromSelect} />
-                </div>
-
-                <div>
-                    <h1>TO</h1>
-                    <PlanetsDropdown handleSelect={handleToSelect} />
-                </div>
-
-                <ShowTravel from={from} to={to} />
-
-                <button>Book travel</button>
-            </Form>
-        </Formik>
+        <>
+            <div>
+                <h1>FROM</h1>
+                <PlanetsDropdown handleSelect={handleFromSelect} />
+            </div>
+            <div>
+                <h1>TO</h1>
+                <PlanetsDropdown handleSelect={handleToSelect} />
+            </div>
+            <ShowTravel from={from} to={to} />
+            <button type='submit'>Book travel</button>
+        </>
     );
 };
 export default TravelSelection;
