@@ -4,7 +4,6 @@ import TravelProviderDropDown from '../TravelProviderDropdown/TravelProviderDrop
 const ShowTravel = (props) => {
     const routeBetweenPlanets = useRouteBetweenPlanets(props.from, props.to);
     const cosmosData = useCosmosApi();
-    console.log(cosmosData);
     return routeBetweenPlanets.map((route, index) => {
         const pairOfPlanets = routeBetweenPlanets.slice(index, index + 2);
 
@@ -18,7 +17,6 @@ const ShowTravel = (props) => {
                 pairOfPlanets.length !== 0
             );
         });
-        console.log(travel);
         if (travel && travel.length > 0) {
             return (
                 <div

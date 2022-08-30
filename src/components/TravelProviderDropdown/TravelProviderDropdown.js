@@ -28,6 +28,7 @@ const TravelProviderDropDown = (props) => {
                             flightStart={provider.flightEnd}
                             flightEnd={provider.flightStart}
                             name={provider.company.name}
+                            key={provider.id}
                             onChange={handlePriceRadioButtonChange}
                         />
                     );

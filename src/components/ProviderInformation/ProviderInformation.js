@@ -6,6 +6,7 @@ const ProviderInformation = (props) => {
                 onChange={props.onChange}
                 value={props.price}
                 name={props.name}
+                key={props.providerKey}
                 data-testid='provider-info-radio'
             />
 
